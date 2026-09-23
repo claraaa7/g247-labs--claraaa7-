@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+body.has-sidebar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "main aside"
+    "footer footer";
+  gap: 1.5rem;
+}
+
+body.has-sidebar header { grid-area: header; }
+body.has-sidebar nav { grid-area: nav; }
+body.has-sidebar main { grid-area: main; }
+body.has-sidebar aside { grid-area: aside; }
+body.has-sidebar footer { grid-area: footer; }
+
+article {
+  padding: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background-color: #fafafa;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+body:not(.has-sidebar) main {
+  display: flex;
+  gap: 1.5rem;
+}
+
+body:not(.has-sidebar) main > section {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  body.has-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+
+  body:not(.has-sidebar) main {
+    flex-direction: column;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+}
+
+form {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+form p {
+  margin: 0 0 1rem 0;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+form input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ef5be0;
+  box-shadow: 0 0 0 3px rgba(220, 77, 218, 0.25);
+}
+
+form button {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #f78fe4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #e88edc;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
